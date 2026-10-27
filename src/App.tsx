@@ -7,6 +7,8 @@ import {
 
 // Контакт для записи: до запуска бота — личка координатора.
 export const SIGNUP_URL = 'https://t.me/odil_akilkhanov'
+// Самостоятельный видео-курс «Mars Base» — оплата сразу на Gumroad.
+export const GUMROAD_URL = 'https://1000prompts.gumroad.com/l/epglkc'
 
 const fadeUp: Variants = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }
 const stagger: Variants = { hidden: {}, visible: { transition: { staggerChildren: 0.09 } } }
@@ -177,6 +179,12 @@ export default function App() {
           </div>
           <div className="flex flex-col justify-between rounded-xl border border-line bg-bg p-6">
             <div>
+              <video
+                src={`${import.meta.env.BASE_URL}demo-reel.mp4`}
+                poster={`${import.meta.env.BASE_URL}demo-poster.jpg`}
+                autoPlay loop muted playsInline
+                className="mb-6 w-full rounded-lg border border-line"
+              />
               <div className="text-sm text-muted">Пробный воркшоп</div>
               <div className="mt-1 text-3xl font-semibold">0 сум</div>
               <div className="mt-6 text-sm text-muted">Курс, за месяц</div>
@@ -184,6 +192,21 @@ export default function App() {
               <div className="text-xs text-muted">эквивалент 45 $ по курсу ЦБ на день оплаты</div>
             </div>
             <div className="mt-8"><Button href={SIGNUP_URL}>Записаться на воркшоп <ChevronRight size={16} /></Button></div>
+          </div>
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="mt-6 grid gap-6 rounded-2xl border border-line bg-surface p-8 md:grid-cols-[1.2fr_1fr] md:items-center md:p-12">
+          <div>
+            <div className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold text-accent">Без группы и расписания</div>
+            <h3 className="mt-3 text-2xl font-semibold tracking-[-0.02em]">«Mars Base»: курс в видео, 8 миссий, в своём темпе</h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted">Те же 8 инженерных миссий, что в живом курсе — но на видео с озвучкой, плюс PDF-гид с кодом и схемами для каждой миссии. Ребёнок смотрит и повторяет в Tinkercad сам, в любое время, навсегда остаётся у вас.</p>
+          </div>
+          <div className="flex flex-col items-start gap-4 md:items-end">
+            <div className="text-right md:text-right">
+              <div className="text-sm text-muted">Разовая покупка</div>
+              <div className="text-3xl font-semibold">$15</div>
+            </div>
+            <Button href={GUMROAD_URL}>Купить видео-курс <ChevronRight size={16} /></Button>
           </div>
         </motion.div>
       </Section>
